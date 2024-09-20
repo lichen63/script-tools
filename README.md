@@ -9,5 +9,3 @@ This repository contains a collection of various script tools that I use in my s
 ## transcribe_text.py
 
 Extract audio from a video (in MP3 format) and transcribe it into text.
-
-- 

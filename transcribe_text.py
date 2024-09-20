@@ -2,6 +2,7 @@ import whisper
 import os
 import subprocess
 import logging
+import opencc  # 新增
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -43,9 +44,13 @@ def main():
     # Extract the transcribed text from the result
     transcribed_text = result['text']
 
-    # Write the transcription result to the output file
+    # Convert Traditional Chinese to Simplified Chinese
+    converter = opencc.OpenCC('t2s')  # t2s 表示繁体转简体
+    simplified_text = converter.convert(transcribed_text)
+
+    # Write the simplified transcription result to the output file
     with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(transcribed_text)
+        f.write(simplified_text)
 
     logging.info(f'Transcription completed! The result has been saved to: {output_file}')
 
