@@ -84,7 +84,7 @@ def process_folder(folder_path):
                 convert_to_utf8(file_path)
 
 if __name__ == "__main__":
-    folder = "/Users/lichenliu/Documents/Books/holy"  # 修改为你的文件夹路径
+    folder = input("Please enter the folder path: ")
     
     # 前置步骤：删除所有 _temp 结尾的文件
     remove_temp_files(folder)
